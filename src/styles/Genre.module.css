@@ -1,0 +1,7 @@
+.chip {
+  color: white;
+  margin: 3px;
+}
+chip:hover {
+  background-color: tomato;
+}

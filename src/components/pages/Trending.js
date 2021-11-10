@@ -6,7 +6,8 @@ import CustomPagination from '../CustomPagination';
 
 function Trending() {
     const [contents, setContents] = useState([]);
-    const [page, setPage] = useState(1)
+    const [page, setPage] = useState(1);
+
 
 
     useEffect(() => {
@@ -14,14 +15,19 @@ function Trending() {
             try {
                 const {data} = await axios.get(`https://api.themoviedb.org/3/trending/all/day?api_key=${process.env.REACT_APP_API_KEY}&page=${page}`);
     
-                setContents(data.results);                
-                // console.log(data);
+                setContents(data.results);
+;                
+                 console.log(data);
             } catch (error) {
                 console.log(error);
             }
         }
 
         fetchTrending();
+
+        return () => {
+            setContents([]);
+        }
     },[page])
 
     return (

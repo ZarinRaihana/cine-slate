@@ -18,10 +18,10 @@ function App() {
          <div className="App">
                 <Container>
                     <Routes>
-                        <Route exact path = '/' element = { <Trending />} />
-                        <Route exact path = '/movies' element = { <Movies />} />
-                        <Route exact path = '/tvSeries' element = { <TvSeries />} />
-                        <Route exact path = '/search' element = {<Search />} />
+                        <Route  path = '/' element = { <Trending />} />
+                        <Route  path = '/movies' element = { <Movies />} />
+                        <Route  path = '/tvSeries' element = { <TvSeries />} />
+                        <Route  path = '/search' element = {<Search />} />
                     </Routes>
                </Container>
         </div>
