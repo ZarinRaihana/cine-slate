@@ -21,7 +21,7 @@ const useStyles = makeStyles({
      },
      container:{
          display: 'flex',
-         margin: '20px 0'
+         margin: '30px 0',
      },
      tab:{
         width: '50%',
@@ -38,17 +38,19 @@ function Search() {
     const [type, setType] = useState(0);
     const [page, setPage] = useState(1);
     const [searchText, setSearchText] = useState("");
-    const [contents, setContents] = useState();
+    const [contents, setContents] = useState([]);
     const [numOfPages, setNumOfPages] = useState(); 
 
     const classes = useStyles();
+
+    window.scroll(0,0);
 
     //  fetching search query
 const fetchSearch = useCallback(
         async () =>{ 
             try {
                 const {data} = await axios.get(`https://api.themoviedb.org/3/search/${type ? "tv" : "movie"}?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&page=${page}&query=${searchText}&include_adult=false`);
-        
+
                 setContents(data.results);
                 setNumOfPages(data.total_pages);
         
@@ -57,6 +59,7 @@ const fetchSearch = useCallback(
                     console.log('There is an Error..!');
             }
         }   
+
     ,[page, searchText, type],
 )
 
@@ -73,6 +76,31 @@ const fetchSearch = useCallback(
     return (
         <div>
             <ThemeProvider theme={darkTheme}>
+            <Tabs value={type} 
+                    onChange={(e, value) =>{ 
+                        setType(value);
+                        setPage(1) 
+                        }} 
+                    indicatorColor='primary' 
+                    textColor='primary' >
+                        <Tab className={classes.tab} 
+                            label ="Search Movies" 
+                            onClick={(e) =>{ 
+                                setSearchText(""); 
+                                setContents(); 
+                                setNumOfPages(); 
+                                }}
+                        ></Tab>
+                        <Tab className={classes.tab} 
+                            label ="Search Tv Series"
+                            onClick={(e) =>{ 
+                                setSearchText(""); 
+                                setContents(); 
+                                setNumOfPages(); 
+                                }}
+                        ></Tab>
+                </Tabs>
+                
                 <div className={classes.container}>
                         <TextField 
                             className={classes.textField} 
@@ -84,21 +112,11 @@ const fetchSearch = useCallback(
                         />
                         <Button 
                             className={classes.button} 
-                            variant="contained" onClick={fetchSearch} >
+                            variant="contained" 
+                            onClick={fetchSearch} >
                                 <SearchIcon />
                         </Button>
-                </div>
-
-                <Tabs value={type} 
-                    onChange={(e, value) =>{ 
-                        setType(value);
-                        setPage(1) 
-                        }} 
-                    indicatorColor='primary' 
-                    textColor='primary' >
-                        <Tab className={classes.tab} label ="Search Movies" ></Tab>
-                        <Tab className={classes.tab} label ="Search Tv Series" ></Tab>
-                </Tabs>
+                </div>             
 
             </ThemeProvider>
 
@@ -113,15 +131,9 @@ const fetchSearch = useCallback(
                                         key={content.id} />
                 )) }
 
-{searchText &&
+            {/* {searchText &&
                    !contents &&
-                   (type?`No Tv Series Found`:`No Movies Found` )}
-           
-                {/* {searchText &&
-                   contents.length < 1 && (<div>Hiii</div>, console.log(type)) &&
-                   (type?`Yes`:`No`)
-                    // (type ? <h2 style ={{fontSize: '500px', color: 'blue'}}>"No Movies Found"</h2> : <h2 style ={{fontSize: '500px', color: 'blue'}}>"No Tv Series Found"</h2>)
-                    && console.log(`hey`)} */}
+                   (type?`No Tv Series Found`:`No Movies Found` )} */}          
 
             </div>
 

@@ -26,6 +26,7 @@ function NavBar() {
     const [value, setValue] = useState(0);
     const navigate = useNavigate();     // instead of useHistory
 
+    //   navigate
     useEffect(() => {
         if (value === 0) 
             navigate('/');
@@ -38,20 +39,18 @@ function NavBar() {
     }, [navigate, value])
 
   return (
-
       <BottomNavigation className = {classes.root }
-        showLabels
-        value={value}
-        onChange={(event, newValue) => {
-          setValue(newValue);
-        }}
-      >
-        <BottomNavigationAction style={{color: 'white'}} label="Trending" icon={<WhatshotIcon />} />
-        <BottomNavigationAction style={{color: 'white'}} label="Movies" icon={<MovieIcon />} />
-        <BottomNavigationAction style={{color: 'white'}} label="Tv Series" icon={<TvIcon />} />
-        <BottomNavigationAction style={{color: 'white'}} label="Search" icon={<SearchIcon />} />
+                                      showLabels
+                                      value={value}
+                                      onChange={(event, newValue) => {
+                                                          setValue(newValue);
+                                        }}>
+      
+          <BottomNavigationAction style={{color: 'white'}} label="Trending" icon={<WhatshotIcon />} />
+          <BottomNavigationAction style={{color: 'white'}} label="Movies" icon={<MovieIcon />} />
+          <BottomNavigationAction style={{color: 'white'}} label="Tv Series" icon={<TvIcon />} />
+          <BottomNavigationAction style={{color: 'white'}} label="Search" icon={<SearchIcon />} />
       </BottomNavigation>
-
   );
 }
 export default NavBar

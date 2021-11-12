@@ -16,6 +16,7 @@ const useStyles = makeStyles({
 function Genre({type, setPage, selectedGenres, setSelectedGenres}) {
     //  custom hook
     const {genres, setGenres} = useGenre(type);  
+    
     const classes = useStyles();
 
     //  Adding to Selected Genres
