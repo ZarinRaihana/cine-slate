@@ -1,4 +1,5 @@
 import Chip from '@mui/material/Chip';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { makeStyles } from '@mui/styles';
 import React from 'react';
 import useGenre from './hooks/useGenre';
@@ -6,10 +7,15 @@ import useGenre from './hooks/useGenre';
 const useStyles = makeStyles({
     root:{
         margin: '3px',
-        '&.css-1haevf0-MuiButtonBase-root-MuiChip-root':{
-            color: 'white',
-            
-        }
+        // '&.css-1haevf0-MuiButtonBase-root-MuiChip-root':{
+        //     color: 'white',         
+        // }
+    }
+});
+
+const darkTheme = createTheme({
+    palette: {
+        mode: "dark",
     }
 });
 
@@ -35,7 +41,7 @@ function Genre({type, setPage, selectedGenres, setSelectedGenres}) {
 
     return (
         <div style={{padding: '6px 0'}}>
-
+        <ThemeProvider theme={darkTheme}>
             {selectedGenres && selectedGenres.map((genre) => 
                 <Chip className={classes.root}  
                             label={genre.name}  
@@ -55,6 +61,7 @@ function Genre({type, setPage, selectedGenres, setSelectedGenres}) {
                             key = {genre.id} 
                 />
           )}  
+          </ThemeProvider>
         </div>
     )
 }
