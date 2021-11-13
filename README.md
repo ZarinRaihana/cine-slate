@@ -1,10 +1,10 @@
 # CINE SLATE
 
-A responsive movie app built with React and Material UI using TMDB api which provides information about movies and tv series. 
+A responsive movie app built with React and Material UI using TMDB api which provides information about movies and tv series.
 
 ## Available Scripts
 
-*** Note - An API key from TMDB is required. ***
+**_ Note - An API key from TMDB is required. _**
 
 In the project directory, you can run:
 
@@ -21,6 +21,3 @@ The page will reload if you make edits.\
 You will also see any lint errors in the console.
 
 ### Deployment
-
-Live Demo: 
-
