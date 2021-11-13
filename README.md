@@ -21,3 +21,5 @@ The page will reload if you make edits.\
 You will also see any lint errors in the console.
 
 ### Deployment
+
+Live - [boring-blackwell-f05462.netlify.app](boring-blackwell-f05462.netlify.app)
