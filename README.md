@@ -8,11 +8,11 @@ A responsive movie app built with React and Material UI using TMDB api which pro
 
 In the project directory, you can run:
 
-### `yarn install` && `npm install`
+### `yarn install` or `npm install`
 
 Installs all the dependencies.
 
-### `yarn start` && `npm start`
+### `yarn start` or `npm start`
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.

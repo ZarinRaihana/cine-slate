@@ -16,7 +16,7 @@ function Trending() {
     
                 setContents(data.results);
                 
-                 console.log(data);
+                //  console.log(data);
             } catch (error) {
                 console.log(error);
             }

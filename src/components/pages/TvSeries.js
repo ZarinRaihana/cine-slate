@@ -25,7 +25,7 @@ function TvSeries() {
     
                 setContents(data.results);
                 setNumOfPages(data.total_pages);                
-                 console.log(data);
+                //  console.log(data);
             } catch (error) {
                 console.log(`There was an ERROR..!`);
             }

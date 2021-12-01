@@ -54,7 +54,7 @@ const fetchSearch = useCallback(
                 setContents(data.results);
                 setNumOfPages(data.total_pages);
         
-                console.log(data);
+                // console.log(data);
             } catch (error) {
                     console.log('There is an Error..!');
             }

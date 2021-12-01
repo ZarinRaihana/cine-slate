@@ -15,7 +15,7 @@ export default function Carousell  ({mediaType, id})  {
             const {data} = await axios.get(`https://api.themoviedb.org/3/${mediaType}/${id}/credits?api_key=${process.env.REACT_APP_API_KEY}`);
 
              setCredits(data.cast);
-            console.log(data.cast);
+            // console.log(data.cast);
         }
         fetchCredits();
 
